@@ -4,9 +4,105 @@
              android:layout_height="match_parent"
              tools:context="com.example.wilsonhuang.games.myFragments.GuessNumberFragment">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:padding="3dp">
 
-    </LinearLayout>
+        <TableRow
+            android:layout_width="match_parent"
+            android:padding="3dp">
+
+            <TextView
+                android:layout_span="5"
+                android:gravity="center"
+                android:text="猜數字，猜中沒獎品"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:padding="3dp">
+
+            <TextView
+                android:text="數字範圍"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+            <TextView
+                android:text="："
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+            <EditText
+                android:id="@+id/edit_minNumber"
+                android:hint="最小值"
+                android:inputType="number"/>
+
+            <TextView
+                android:text=" ~ "
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+            <EditText
+                android:id="@+id/edit_maxNumber"
+                android:hint="最大值"
+                android:inputType="number"/>
+
+        </TableRow>
+
+        <TableRow
+            android:padding="3dp">
+
+            <TextView
+                android:text="猜個數字吧"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+            <TextView
+                android:text="："
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+            <EditText
+                android:id="@+id/edit_myNumber"
+                android:layout_span="3"
+                android:hint="輸入數字"
+                android:inputType="number"/>
+
+        </TableRow>
+
+        <TableRow
+            >
+
+            <LinearLayout
+                android:layout_span="5">
+
+                <Button
+                    android:id="@+id/bt_do_cancel"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    android:text="重新遊戲"/>
+
+                <Button
+                    android:id="@+id/bt_do_guess"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    android:text="★ 猜猜看 ☆"/>
+            </LinearLayout>
+
+        </TableRow>
+
+        <TableRow
+            android:padding="3dp">
+
+            <TextView
+                android:id="@+id/txt_result"
+                android:layout_gravity="center"
+                android:layout_span="5"
+                android:text="RESULT"
+                />
+        </TableRow>
+    </TableLayout>
 </FrameLayout>
