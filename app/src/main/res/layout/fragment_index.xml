@@ -2,12 +2,28 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
+             android:padding="16dp"
              tools:context="com.example.wilsonhuang.games.myFragments.IndexFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"/>
+        android:orientation="vertical">
 
+        <Button
+            android:id="@+id/bt_gueseNumber"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="猜數字"
+            />
+
+        <Button
+            android:id="@+id/bt_OOXX"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="OOXX"
+            />
+    </LinearLayout>
 </FrameLayout>
