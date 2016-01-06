@@ -7,7 +7,7 @@ public class Games {
     public static String[] gameNames;
 
     static {
-        gameNames = new String[]{"首頁", "猜數字", "圈圈叉叉"};
+        gameNames = new String[]{"猜數字", "圈圈叉叉"};
 
     }
 }

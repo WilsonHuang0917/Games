@@ -1,12 +1,14 @@
 package com.example.wilsonhuang.games;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.view.Gravity;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,7 +16,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.wilsonhuang.games.myFragments.GuessNumberFragment;
-import com.example.wilsonhuang.games.myFragments.IndexFragment;
 import com.example.wilsonhuang.games.myFragments.OOXXFragment;
 
 public class MainActivity extends Activity {
@@ -70,12 +71,26 @@ public class MainActivity extends Activity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.my_menu, menu);
+        return true;
+    }
+
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (drawerLayout.isDrawerOpen(Gravity.START)) {
-            drawerLayout.closeDrawer(Gravity.START);
+        if (item.getItemId() == R.id.action_about_me) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            builder.setTitle("關於我...");
+            builder.setMessage("資訊管理學系\n黃建寧\n10322014B");
+            builder.create().show();
+        } else if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
         } else {
-            drawerLayout.openDrawer(Gravity.START);
+            drawerLayout.openDrawer(GravityCompat.START);
         }
+
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -88,11 +103,10 @@ public class MainActivity extends Activity {
 
     private void selectItem(int position) {
         Fragment fragment = null;
+
         if (position == 0) {
-            fragment = new IndexFragment();
-        } else if (position == 1) {
             fragment = new GuessNumberFragment();
-        } else if (position == 2) {
+        } else if (position == 1) {
             fragment = new OOXXFragment();
         }
         Bundle bundle = new Bundle();
@@ -108,7 +122,7 @@ public class MainActivity extends Activity {
 
         setTitle(Games.gameNames[position]);
 
-        drawerLayout.closeDrawer(Gravity.START);
+        drawerLayout.closeDrawer(GravityCompat.START);
     }
 
     @Override
@@ -119,19 +133,13 @@ public class MainActivity extends Activity {
 
     @Override
     public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(Gravity.START)) {
-            drawerLayout.closeDrawer(Gravity.START);
-        } else if (currentItem == 0) {
-            finish();
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
         } else {
-            Fragment fragment = new IndexFragment();
-            Bundle bundle = new Bundle();
-            bundle.putInt("position", 0);
-            fragment.setArguments(bundle);
-            getFragmentManager().beginTransaction()
-                    .replace(R.id.content_main, fragment, String.valueOf(0))
-                    .commit();
-            currentItem = 0;
+            super.onBackPressed();
         }
+
     }
+
+
 }

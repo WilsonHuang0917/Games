@@ -15,7 +15,7 @@
             android:padding="3dp">
 
             <TextView
-                android:layout_span="5"
+                android:layout_span="6"
                 android:gravity="center"
                 android:text="猜數字，猜中沒獎品"
                 android:textAppearance="?android:attr/textAppearanceLarge"
@@ -36,6 +36,7 @@
 
             <EditText
                 android:id="@+id/edit_minNumber"
+                android:gravity="center"
                 android:hint="最小值"
                 android:inputType="number"/>
 
@@ -45,8 +46,14 @@
 
             <EditText
                 android:id="@+id/edit_maxNumber"
+                android:gravity="center"
                 android:hint="最大值"
                 android:inputType="number"/>
+
+            <Button
+                android:id="@+id/bt_checkNumber"
+                android:padding="3dp"
+                android:text="確定"/>
 
         </TableRow>
 
@@ -63,7 +70,8 @@
 
             <EditText
                 android:id="@+id/edit_myNumber"
-                android:layout_span="3"
+                android:layout_span="4"
+                android:gravity="center"
                 android:hint="輸入數字"
                 android:inputType="number"/>
 
@@ -73,7 +81,7 @@
             >
 
             <LinearLayout
-                android:layout_span="5">
+                android:layout_span="6">
 
                 <Button
                     android:id="@+id/bt_do_cancel"
@@ -100,7 +108,7 @@
             <TextView
                 android:id="@+id/txt_result"
                 android:layout_gravity="center"
-                android:layout_span="5"
+                android:layout_span="6"
                 android:text="RESULT"
                 />
         </TableRow>
