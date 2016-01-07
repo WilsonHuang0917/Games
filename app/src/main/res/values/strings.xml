@@ -3,4 +3,7 @@
 
     <string name="drawer_open">開啟Drawer</string>
     <string name="drawer_close">關閉Drawer</string>
+    <string name="yes">非常中肯！</string>
+    <string name="no">聽你在唬爛~"~</string>
+    <string name="restart">重新遊戲</string>
 </resources>

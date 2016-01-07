@@ -4,6 +4,70 @@
              android:layout_height="match_parent"
              tools:context="com.example.wilsonhuang.games.myFragments.OOXXFragment">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:padding="3dp"
+            android:shrinkColumns="*">
 
+            <TableRow>
+
+                <ImageButton
+                    android:id="@+id/ibt_1"
+                    android:src="@drawable/question_mark"/>
+
+                <ImageButton
+                    android:id="@+id/ibt_2"
+                    android:src="@drawable/question_mark"/>
+
+                <ImageButton
+                    android:id="@+id/ibt_3"
+                    android:src="@drawable/question_mark"/>
+            </TableRow>
+
+            <TableRow>
+
+                <ImageButton
+                    android:id="@+id/ibt_4"
+                    android:src="@drawable/question_mark"/>
+
+                <ImageButton
+                    android:id="@+id/ibt_5"
+                    android:src="@drawable/question_mark"/>
+
+                <ImageButton
+                    android:id="@+id/ibt_6"
+                    android:src="@drawable/question_mark"/>
+            </TableRow>
+
+            <TableRow>
+
+                <ImageButton
+                    android:id="@+id/ibt_7"
+                    android:src="@drawable/question_mark"/>
+
+                <ImageButton
+                    android:id="@+id/ibt_8"
+                    android:src="@drawable/question_mark"/>
+
+                <ImageButton
+                    android:id="@+id/ibt_9"
+                    android:src="@drawable/question_mark"/>
+            </TableRow>
+        </TableLayout>
+
+        <Button
+            android:id="@+id/bt_restart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="重新開始"
+            android:textAppearance="?android:attr/textAppearanceLarge"/>
+    </LinearLayout>
 </FrameLayout>
