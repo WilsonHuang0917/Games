@@ -2,6 +2,7 @@ package com.example.wilsonhuang.games.myFragments;
 
 
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.util.Log;
@@ -31,6 +32,8 @@ public class GuessNumberFragment extends Fragment {
     private int myNumber;
     private int answerNumber;
 
+    private MediaPlayer mediaPlayer;
+
     public GuessNumberFragment() {
     }
 
@@ -38,7 +41,7 @@ public class GuessNumberFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        context = getActivity();
+
         int position = getArguments().getInt("position");
         String itemTitle = Games.gameNames[position];
         getActivity().setTitle(itemTitle);
@@ -48,7 +51,8 @@ public class GuessNumberFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
+        context = getActivity();
+        mediaPlayer = new MediaPlayer();
         processViews();
         processControllers();
     }
@@ -99,10 +103,13 @@ public class GuessNumberFragment extends Fragment {
                             myNumber = Integer.parseInt(edit_MyNumber.getText().toString());
                             if (myNumber == answerNumber) {
                                 txt_Result.setText("恭喜！\n猜中囉！");
+                                myMediaPlayer(R.raw.applause);
                             } else if (myNumber > answerNumber) {
                                 txt_Result.setText("猜得太大囉...");
+                                myMediaPlayer(R.raw.system_error);
                             } else if (myNumber < answerNumber) {
                                 txt_Result.setText("猜得太小囉...");
+                                myMediaPlayer(R.raw.system_error);
                             }
                         } catch (Exception e) {
                             Toast.makeText(context, "要猜的數字尚未輸入！", Toast.LENGTH_SHORT).show();
@@ -125,4 +132,28 @@ public class GuessNumberFragment extends Fragment {
 
         }
     }
+
+
+    private void myMediaPlayer(int id) {
+        mediaPlayer = new MediaPlayer();
+        mediaPlayer = MediaPlayer.create(context, R.raw.applause);
+        try {
+            if (mediaPlayer != null) {
+                mediaPlayer.stop();
+            }
+            mediaPlayer.prepare();
+            mediaPlayer.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onPause() {
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+        }
+        super.onPause();
+    }
+
 }

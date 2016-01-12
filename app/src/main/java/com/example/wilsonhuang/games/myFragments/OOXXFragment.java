@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +30,7 @@ public class OOXXFragment extends Fragment {
     private Question question;
     private int questionsCount;
 
+    private MediaPlayer mediaPlayer;
 
     public OOXXFragment() {
     }
@@ -49,6 +51,7 @@ public class OOXXFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         context = getActivity();
+
         view = getView();
         initFlag();
         processViews();
@@ -213,8 +216,24 @@ public class OOXXFragment extends Fragment {
 
         if (count1 == 3 || count2 == 3 || count3 == 3 || count4 == 3 || count5 == 3 || count6 == 3 || count7 == 3 || count8 == 3) {
             gameOver("您真是中肯之人！！");
+            myMediaPlayer(R.raw.applause);
         } else if (count1 == -3 || count2 == -3 || count3 == -3 || count4 == -3 || count5 == -3 || count6 == -3 || count7 == -3 || count8 == -3) {
             gameOver("痾....");
+            myMediaPlayer(R.raw.applause);
+        }
+    }
+
+    private void myMediaPlayer(int id) {
+        mediaPlayer = new MediaPlayer();
+        mediaPlayer = MediaPlayer.create(context, R.raw.applause);
+        try {
+            if (mediaPlayer != null) {
+                mediaPlayer.stop();
+            }
+            mediaPlayer.prepare();
+            mediaPlayer.start();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -228,5 +247,13 @@ public class OOXXFragment extends Fragment {
             }
         });
         builder.create().show();
+    }
+
+    @Override
+    public void onPause() {
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+        }
+        super.onPause();
     }
 }

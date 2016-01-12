@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Games</string>
+    <string name="app_name">小遊戲</string>
 
     <string name="drawer_open">開啟Drawer</string>
     <string name="drawer_close">關閉Drawer</string>
