@@ -225,7 +225,7 @@ public class OOXXFragment extends Fragment {
 
     private void myMediaPlayer(int id) {
         mediaPlayer = new MediaPlayer();
-        mediaPlayer = MediaPlayer.create(context, R.raw.applause);
+        mediaPlayer = MediaPlayer.create(context, id);
         try {
             if (mediaPlayer != null) {
                 mediaPlayer.stop();
