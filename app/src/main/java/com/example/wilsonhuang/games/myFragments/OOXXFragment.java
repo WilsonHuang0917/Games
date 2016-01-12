@@ -219,7 +219,7 @@ public class OOXXFragment extends Fragment {
             myMediaPlayer(R.raw.applause);
         } else if (count1 == -3 || count2 == -3 || count3 == -3 || count4 == -3 || count5 == -3 || count6 == -3 || count7 == -3 || count8 == -3) {
             gameOver("痾....");
-            myMediaPlayer(R.raw.applause);
+            myMediaPlayer(R.raw.guffaw);
         }
     }
 
